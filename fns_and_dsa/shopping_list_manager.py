@@ -9,27 +9,27 @@ def main():
     shopping_list = []
     while True:
         display_menu()
-        choice = input("Enter your choice: ")
+        choice = int(input("Enter your choice: "))
 
-        if choice == '1':
+        if choice == 1:
             # Add an item to the shopping list
-            item = input("Enter item name: ")
+            item = input("Enter the item to add: ")
             shopping_list.append(item)
             print(f"'{item}' has been added to the list.")
 
-        elif choice == '2':
+        elif choice == 2:
             # Remove an item from the shopping list
             if not shopping_list:
                 print("The shopping list is empty.")
             else:
-                item = input("Enter item name to remove: ")
+                item = input("Enter the item to remove: ")
                 if item in shopping_list:
                     shopping_list.remove(item)
                     print(f"'{item}' has been removed from the list.")
                 else:
                     print(f"'{item}' was not found in the list.")
 
-        elif choice == '3':
+        elif choice == 3:
             # Display the shopping list
             if not shopping_list:
                 print("The shopping list is empty.")
@@ -38,7 +38,7 @@ def main():
                 for index, item in enumerate(shopping_list, 1):
                     print(f"{index}. {item}")
 
-        elif choice == '4':
+        elif choice == 4:
             print("Goodbye!")
             break
 
