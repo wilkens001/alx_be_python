@@ -1,14 +1,18 @@
 # Global conversion factors
-FAHRENHEIT_TO_CELSIUS_FACTOR = -32
-CELSIUS_TO_FAHRENHEIT_FACTOR = 32
+FAHRENHEIT_TO_CELSIUS_FACTOR = 5/9  # Factor for F to C conversion
+CELSIUS_TO_FAHRENHEIT_FACTOR = 9/5  # Factor for C to F conversion
 
 def convert_to_celsius(fahrenheit):
-    """Convert Fahrenheit temperature to Celsius."""
-    return (fahrenheit + FAHRENHEIT_TO_CELSIUS_FACTOR) * (5/9)
+    """Convert temperature from Fahrenheit to Celsius."""
+    if not isinstance(fahrenheit, (int, float)):
+        raise ValueError("Invalid temperature. Please enter a numeric value.")
+    return (fahrenheit - 32) * FAHRENHEIT_TO_CELSIUS_FACTOR
 
 def convert_to_fahrenheit(celsius):
-    """Convert Celsius temperature to Fahrenheit."""
-    return (celsius * (9/5)) + CELSIUS_TO_FAHRENHEIT_FACTOR
+    """Convert temperature from Celsius to Fahrenheit."""
+    if not isinstance(celsius, (int, float)):
+        raise ValueError("Invalid temperature. Please enter a numeric value.")
+    return (celsius * CELSIUS_TO_FAHRENHEIT_FACTOR) + 32
 
 def main():
     try:
